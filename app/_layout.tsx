@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
@@ -36,3 +37,21 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+=======
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Slot } from "expo-router";
+
+
+export default function RootLayout() {
+  return (
+    <>
+      <Text>Header</Text>
+      <Slot />
+      <Text>Footer</Text>
+    </>
+
+  )
+}
+
+>>>>>>> 4f3a68ee821372aa5af7273306cea4036806d186

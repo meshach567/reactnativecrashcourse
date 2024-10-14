@@ -1,6 +1,10 @@
 # Welcome to your Expo app 👋
 
+<<<<<<< HEAD
 This is  [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+=======
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+>>>>>>> 4f3a68ee821372aa5af7273306cea4036806d186
 
 ## Get started
 
