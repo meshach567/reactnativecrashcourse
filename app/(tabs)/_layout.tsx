@@ -1,11 +1,11 @@
-import { View, Text, Image, ImageSourcePropType } from 'react-native'
-import React from 'react'
+import { View, Text, Image, ImageSourcePropType } from 'react-native';
+import React from 'react';
 import { Tabs } from 'expo-router';
 
-import icons from '../../constants/icons'
+import icons from '../../constants/icons';
 
 type tabProps = {
-    icon: string, color: string, name: string, focused: string
+    icon: string, color: string, name: string, focused: boolean
 }
 
 
@@ -13,13 +13,13 @@ const TabIcon = ({ icon, color, name, focused }: tabProps) => {
     return (
         <View className='items-center justify-center gap-2 '>
             <Image
-                source={icons as ImageSourcePropType}
+                source={icon as ImageSourcePropType}
                 resizeMode='contain'
                 tintColor={color}
                 className='w-6 h-6'
             />
-            <Text 
-            className={`${focused ? 'font-psemibold' : 'font-pregulat'} text-xs`}
+            <Text
+                className={`${focused ? 'font-psemibold' : 'font-pregulat'} text-xs`} style={{ color: color}}
             >
                 {name}
             </Text>
@@ -31,9 +31,18 @@ const TabLayout = () => {
     return (
         <>
             <Tabs
-            screenOptions={{
-                tabBarShowLabel: false
-            }}>
+                screenOptions={{
+                    tabBarShowLabel: false,
+                    tabBarActiveTintColor: '#FFA001',
+                    tabBarInactiveTintColor: '#CDCDE0',
+                    tabBarStyle: {
+                        backgroundColor: '#161622',
+                        borderTopColor: '#232533',
+                        borderTopWidth: 1,
+                        height: 84
+                    }
+                }}
+                >
                 <Tabs.Screen
                     name='home'
                     options={{
@@ -41,13 +50,14 @@ const TabLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={icons.home} 
-                                color={''} 
-                                name={''} 
-                                 focused={''} />
+                                icon={icons.home}
+                                color={color}
+                                name='Home'
+                                focused={focused} />
                         )
                     }}
                 />
+
                 <Tabs.Screen
                     name='bookmrk'
                     options={{
@@ -55,27 +65,44 @@ const TabLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={icons.home} 
-                                color={''} 
-                                name={''} 
-                                 focused={''} />
+                                icon={icons.bookmark}
+                                color={color}
+                                name='Bookmark'
+                                focused={focused} />
                         )
                     }}
                 />
+
                 <Tabs.Screen
-                    name='home'
+                    name='create'
                     options={{
-                        title: 'Home',
+                        title: 'create',
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={icons.home} 
-                                color={color} 
-                                name={''} 
-                                 focused={''} />
+                                icon={icons.plus}
+                                color={color}
+                                name='Create'
+                                focused={focused} />
                         )
                     }}
                 />
+
+                <Tabs.Screen
+                    name='profile'
+                    options={{
+                        title: 'profile',
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={icons.profile}
+                                color={color}
+                                name='Profile'
+                                focused={focused} />
+                        )
+                    }}
+                />
+
             </Tabs>
         </>
     )
