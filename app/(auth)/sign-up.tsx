@@ -6,8 +6,9 @@ import FormField from '@/components/FormField'
 import CustomButton from '@/components/CustomButton'
 import { Link } from 'expo-router'
 
-const SignIn = () => {
+const SignUp = () => {
     const [form, setForm] = useState({
+        username: '',        
         email: '',
         password: ''
     })
@@ -28,8 +29,22 @@ const SignIn = () => {
             className='w-[115px] h-[35px]'
             />
             <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>
-                Log in to Auro
+                Sign Up to Auro
             </Text>
+
+            <FormField 
+            title='Username'
+            value={form.username}
+            handleChangeText={(e: any) => setForm({ ...form, username: e })}
+            otherStyles="mt-10" placeholder={''}            
+            />
+            <CustomButton 
+            title='Sign In'  
+            handlePress={submit}   
+            containerStyles='mt-7'  
+            isLoading={isSubmiting}      
+            />
+
             <FormField 
             title='Email'
             value={form.email}
@@ -45,8 +60,8 @@ const SignIn = () => {
 
             <View className='justify-center pt-5 flex-row gap-2'>
               <Text className='text-lg text-gray-100'>
-                Don't have account?
-              </Text>
+                Have an account already?
+              </Text> 
               <Link href='/sign-up' className='text-lg font-psemibold text-secondary'>
               Sign In
               </Link>
@@ -57,4 +72,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignUp
