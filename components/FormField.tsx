@@ -7,9 +7,10 @@ type formFieldProps = {
     value: string,
     placeholder: string,
     handleChangeText: any,
-    otherStyles: string
+    otherStyles: string,
+    keyboardType: string
 }
-const FormField = ({ title, value, placeholder, handleChangeText, otherStyles, ...props }: formFieldProps) => {
+const FormField = ({ title, value, placeholder, handleChangeText, otherStyles, keyboardType, ...props }: formFieldProps) => {
 
     const [showPassword, setShowPassword] = useState(false)
     return (

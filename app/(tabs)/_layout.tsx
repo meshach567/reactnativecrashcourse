@@ -1,6 +1,9 @@
 import { View, Text, Image, ImageSourcePropType } from 'react-native';
 import React from 'react';
-import { Tabs } from 'expo-router';
+
+import { StatusBar } from "expo-status-bar";
+import { Redirect, Tabs } from "expo-router";
+
 
 import icons from '../../constants/icons';
 
@@ -19,7 +22,7 @@ const TabIcon = ({ icon, color, name, focused }: tabProps) => {
                 className='w-6 h-6'
             />
             <Text
-                className={`${focused ? 'font-psemibold' : 'font-pregulat'} text-xs`} style={{ color: color}}
+                className={`${focused ? 'font-psemibold' : 'font-pregulat'} text-xs`} style={{ color: color }}
             >
                 {name}
             </Text>
@@ -42,7 +45,7 @@ const TabLayout = () => {
                         height: 84
                     }
                 }}
-                >
+            >
                 <Tabs.Screen
                     name='home'
                     options={{

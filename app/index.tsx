@@ -1,13 +1,13 @@
-import { Image, ImageSourcePropType, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ImageSourcePropType, ScrollView, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { Link, Redirect, router } from "expo-router";
+import {  router } from "expo-router";
 import React from "react";
 import '../global.css';
 import { images } from "@/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/components/CustomButton";
 
-export default function App() {
+export default function App() { 
     <SafeAreaView className="bg-primary h-full">
         <ScrollView contentContainerStyle={{ height: '100%' }}>
             <View className="w-full justify-center min-h-[85vh] items-center h-full px-4">
@@ -27,10 +27,9 @@ export default function App() {
                     </Text>
 
                     <CustomButton title="Continue with Email"
-                    handlePress={() => router.push('/sign-in') }
-                    containerStyles="w-full mt-7" 
-                     isLoading={false }                    
-                    />
+                    handlePress={() => router.push('/sign-in')}
+                    containerStyles="w-full mt-7"
+                    isLoading={false} textStyles={""}                    />
                 </View>
             </View>
         </ScrollView>
@@ -38,12 +37,3 @@ export default function App() {
     </SafeAreaView>
 }
 
-export const styles = StyleSheet.create({
-    container: {
-        display: 'flex',
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-});
