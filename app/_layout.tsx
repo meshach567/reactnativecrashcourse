@@ -1,6 +1,7 @@
-import { Stack, SplashScreen } from 'expo-router';
-import { useFonts } from 'expo-font';
 import React, { useEffect } from "react";
+import { useFonts } from "expo-font";
+import "react-native-url-polyfill/auto";
+import { SplashScreen, Stack } from "expo-router";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -8,7 +9,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded, error] = useFonts({
-    // "Poppins-Black": require('../assets/fonts/Poppins-Black.tff'),
+    "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
     "Poppins-ExtraBold": require("../assets/fonts/Poppins-ExtraBold.ttf"),
     "Poppins-ExtraLight": require("../assets/fonts/Poppins-ExtraLight.ttf"),
@@ -38,11 +39,11 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false}} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false}} />
-      {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
-    </Stack>
+    <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+    <Stack.Screen name="index" options={{ headerShown: false }} />
+    <Stack.Screen name="search/[query]" options={{ headerShown: false }} />
+  </Stack>
   );
 }
 

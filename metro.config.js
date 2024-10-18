@@ -1,6 +1,23 @@
 const { getDefaultConfig } = require("expo/metro-config");
-const { withNativeWind } = require('nativewind/metro');
+const path = require('path');
 
-const config = getDefaultConfig(__dirname)
+module.exports = (() => {
+  const config = getDefaultConfig(__dirname);
 
-module.exports = withNativeWind(config, { input: './global.css' })
+  const { transformer, resolver } = config;
+
+  config.transformer = {
+    ...transformer,
+    babelTransformerPath: path.resolve(__dirname, 'node_modules/nativewind/dist/transformer.js'),
+  };
+  config.resolver = {
+    ...resolver,
+    assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
+    sourceExts: [...resolver.sourceExts, "svg"],
+    extraNodeModules: new Proxy({}, {
+      get: (target, name) => path.join(__dirname, `node_modules/${name}`),
+    }),
+  };
+
+  return config;
+})();

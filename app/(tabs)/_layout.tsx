@@ -1,11 +1,9 @@
-import { View, Text, Image, ImageSourcePropType } from 'react-native';
-import React from 'react';
-
 import { StatusBar } from "expo-status-bar";
 import { Redirect, Tabs } from "expo-router";
+import { Image, ImageSourcePropType, Text, View } from "react-native";
+import React from "react";
+import { icons } from "../../constants";
 
-
-import icons from '../../constants/icons';
 
 type tabProps = {
     icon: string, color: string, name: string, focused: boolean

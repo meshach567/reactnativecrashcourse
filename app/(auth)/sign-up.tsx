@@ -5,16 +5,17 @@ import { images } from '@/constants'
 import FormField from '@/components/FormField'
 import CustomButton from '@/components/CustomButton'
 import { Link } from 'expo-router'
+import { createUser } from '@/lib/appwrite'
 
 const SignUp = () => {
   const [form, setForm] = useState({
-    username: '',
+    username: '', 
     email: '',
     password: ''
   })
 
   const submit = () => {
-
+    createUser();
   }
 
   const [isSubmiting, setiSSubmiting] = useState(false);
